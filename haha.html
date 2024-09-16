@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        import OpenAI from "openai";
+const openai = new OpenAI();
+
+const completion = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [
+        { role: "system", content: "You are a helpful assistant." },
+        {
+            role: "user",
+            content: "Write a haiku about recursion in programming.",
+        },
+    ],
+});
+
+console.log(completion.choices[0].message);
+    </script>
+</body>
+</html>
